@@ -22,9 +22,10 @@ test('Test GameSavingData', () => {
 });
 
 test('Test readGameSaving', () => {
-  const expected = JSON.parse('{"id":9,"created":1546300800,"userInfo":{"id":1,"name":"Hitman","level":10,"points":2000}}');
+  const testdata = '{"id":9,"created":1546300800,"userInfo":{"id":1,"name":"Hitman","level":10,"points":2000}}';
+  const expected = JSON.parse(testdata);
 
-  readGameSaving().then((data) => {
+  readGameSaving(testdata).then((data) => {
     const result = new GameSavingData(data).json();
     expect(result).toEqual(expected);
   });
